@@ -141,6 +141,7 @@ button
    const inp2=document.querySelector('.password');
    const inp3=document.querySelector('.password2');
    const inp4=document.querySelector('.email');
+   const inp0=document.querySelectorAll('input');
    const but=document.querySelector('button');
        
       class NewUser
@@ -155,20 +156,14 @@ button
            if(inp2.value!=inp3.value && passCheck)
            {
             this.tab=[];
-             alert('Bledne haslo');
              return 
            }
 
            if(input.value=='')
            {
-            alert(`wpisz ${value}`);
-            return;
+            return
            }
-           if(!inp4.value.includes('@'))
-           {
-               inp4.value='';
-               alert('Podaj wlasciwego Emaila')
-           }
+           
 
             this.tab.push(input.value);;
             
@@ -208,6 +203,37 @@ button
   
   const user=new NewUser();
   but.addEventListener('click',NewUser.Init)
+  but.addEventListener('click',NewUser.Init)
+  inp0.forEach(element=>
+  {
+      element.addEventListener('input',function()
+      {
+         if(inp2.value !=inp3.value)
+         {
+             inp2.style.borderColor='red';
+             inp2.style.backgroundColor='red';
+             inp3.style.borderColor='red';
+             inp3.style.backgroundColor='red';
+         }
+         else
+         {
+             inp2.style.borderColor='green';
+             inp2.style.backgroundColor='rgb(90, 90, 90)';
+             inp3.style.borderColor='green';
+             inp3.style.backgroundColor='rgb(90, 90, 90)';
+         }
+         if(!inp4.value.includes('@'))
+         {
+            inp4.style.borderColor='red';
+             inp4.style.backgroundColor='red';
+         }
+         else
+         {
+            inp4.style.borderColor='green';
+             inp4.style.backgroundColor='rgb(90, 90, 90)';
+         }
+      })
+  })
 
 
          
