@@ -99,6 +99,7 @@ button
         form
 { 
     width: 100%;
+
 }
 }
 </style>
@@ -155,7 +156,11 @@ button
             alert(`wpisz ${value}`);
             return;
            }
-          
+           if(!inp4.value.includes('@'))
+           {
+               inp4.value='';
+               alert('Podaj wlasciwego Emaila')
+           }
 
             this.tab.push(input.value);;
             
